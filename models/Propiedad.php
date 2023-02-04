@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Model;
 
 use App\Propiedad as AppPropiedad;
 use PDO;
