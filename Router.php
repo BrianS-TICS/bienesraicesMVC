@@ -8,10 +8,14 @@ class Router
     public $rutasGET = [];
     public $rutasPOST = [];
 
+    public function render($view)
+    {
+        include __DIR__ . "/views/$view.php";
+    }
+
     public function get($url, $fn)
     {
         $this->rutasGET[$url] = $fn;
-        debugear($this->rutasGET);
     }
 
     public function comprobarRutas()
@@ -25,6 +29,7 @@ class Router
         }
 
         if ($fn) {
+            call_user_func($fn, $this);
         } else {
             echo "PAGINA NO ENCOTRADA";
         }
